@@ -1,0 +1,121 @@
+@media only screen and (min-width: 992px) and (max-width: 1200px) {
+	.single-event {
+        padding: 50px 0;
+    }
+    .event-content {
+        padding-left: 180px;
+    }
+}
+
+@media (max-width: 991px) {
+	.main-menu ul li a {
+	color: #000;
+	}
+	.navbar-collapse {
+		background: #fff;
+		margin-top: 40px;
+	}
+	.navbar-toggler{
+		margin-top: 20px;
+		background: #fa3c22;
+		color: #fff;
+	}
+	.booking-right > img {
+    	display: none;
+	}
+}
+
+/*================ Tablet desktop :768px.==================*/
+@media (min-width: 768px) and (max-width: 991px) {
+	 .food-menu-box {
+		display: none
+	}
+	.food-menu-slider {
+		display: block !important
+	}
+	.event-content {
+        padding-left: 180px;
+    }
+}
+
+/*================== small mobile :320px. ===================*/
+
+@media (max-width: 767px) {
+	h1{
+		font-size: 30px;
+		line-height: 50px;
+	}
+	h2{
+		font-size: 32px;
+	}
+	.section-padding{
+		padding:70px 0px;
+	}
+
+	.section-title h2{
+		font-size: 30px;
+		line-height: 35px;
+		
+	}
+	.hero-area .hero-content-area h1{
+		line-height: 45px;
+	}
+	.about-left-content{
+		margin-bottom: 30px;
+	}
+	.order-area h2{
+		font-size: 30px;
+	}
+	.food-menu-box {
+		display: none
+	}
+	.food-menu-slider {
+		display: block !important
+	}
+	.event-img {
+        float: none;
+        margin: 0 0 20px;
+    }
+    .event-img img {
+        width: 100%;
+    }
+    .single-event {
+        position: relative;
+    }
+    .event-content {
+        padding: 0;
+        position: inherit;
+    }
+    .event-date {
+        background: rgba(0, 0, 0, 0.5) none repeat scroll 0 0;
+        color: #fff;
+        height: 100px;
+        padding-top: 18px;
+        position: absolute;
+        top: -120px;
+        width: 100px;
+    }
+    .event-date span {
+        font-size: 30px;
+        padding-bottom: 0;
+    }
+    .single-event {
+        padding: 40px 0;
+    }
+    .event-details > h3 {
+        font-size: 20px;
+    }
+}
+
+@media only screen and (min-width: 480px) and (max-width: 767px) {
+	.food-menu-box {
+		display: none
+	}
+	.food-menu-slider {
+		display: block !important
+	}
+
+	.single-food-menu{
+        margin: 5px 30px
+    }
+}
