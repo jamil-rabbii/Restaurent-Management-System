@@ -8,6 +8,7 @@
         <meta name="keywords" content="onepage, business, clean, modern">
         <meta name="author" content="Jamil,Tauhid">
         <meta name="viewport" content="width=device-width, initial-scale=1">
+         <meta name="author" content="Jamil">
 
         <!--title-->
         <title>The Sahabian's</title>
