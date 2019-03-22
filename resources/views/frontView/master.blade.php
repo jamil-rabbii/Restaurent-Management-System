@@ -11,41 +11,12 @@
         
         <!--title-->
         <title>The Sahabian's</title>
-        <link rel="stylesheet" href="{{asset('frontend')}}/assets/css/bootstrap.min.css">
-        <link rel="stylesheet" href="{{asset('frontend')}}/assets/css/font-awesome.min.css">
-        <link rel="stylesheet" href="{{asset('frontend')}}/assets/css/owl.carousel.min.css">
-        <link rel="stylesheet" href="{{asset('frontend')}}/assets/css/owl.theme.default.min.css">
-        <link rel="stylesheet" href="{{asset('frontend')}}/assets/css/jquery.datepicker.css">
-        <link rel="stylesheet"  href="{{asset('frontend')}}/assets/css/style.css">
-        <link rel="stylesheet"  href="{{asset('frontend')}}/assets/css/responsive.css">
-        <link rel="shortcut icon" href="{{asset('frontend')}}/assets/favicon/TheShahibiens.jpg" type="image/x-icon"/>
+        @yield('css')
 
     </head>
     <body>
-        <header class="header-area">
-          <nav class="navbar navbar-expand-lg sticky-top site-menu">
-              <div class="container">
-                  <a class="logo" href="index.html">
-                    The Sahebian's
-                      <!-- <img src="assets/images/logo-1.png" class="bg-logo" alt="site logo"> -->
-                  </a>
-                  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                  <i class="fa fa-bars" aria-hidden="true"></i>
-                 </button>
-                  <div class="collapse navbar-collapse main-menu" id="navbarSupportedContent">
-                      <ul class="navbar-nav ml-auto menu-item">
-                          <li class="active"><a class="smoth-scroll" href="#home">Home</a></li>
-                          <li><a class="smoth-scroll" href="#about">About</a> </li>
-                          <li><a class="smoth-scroll" href="#sahebian-food-menu">menu</a> </li>
-                          <li><a class="smoth-scroll" href="#reservation">reservation</a> </li>
-                          <li><a class="smoth-scroll" href="#order">order</a> </li>
-                          <li><a class="smoth-scroll" href="#event">Events</a> </li>
-                          <li><a class="smoth-scroll" href="#contact">contact</a> </li>
-                      </ul>
-                  </div>
-              </div>
-          </nav>
-        </header>
+        
+        @include('frontView.inc.header')
 
         <!--******=====start hero section =====******-->   
         <section id="home" class="hero-area">
@@ -538,39 +509,12 @@
       </section>
       <!--******===== Contact Area End ******=====-->
 
-      <!--******===== Footer Area Start ******=====-->
-      <footer class="sahebian-footer-area section-padding">
-         <div class="container">
-            <div class="row">
-               <div class="col-md-12">
-                  <div class="footer-box">
-                     <ul class="social-footer">
-                        <li><a href="#"><i class="fa fa-facebook"></i></a></li>
-                        <li><a href="#"><i class="fa fa-twitter"></i></a></li>
-                        <li><a href="#"><i class="fa fa-linkedin"></i></a></li>
-                        <li><a href="#"><i class="fa fa-pinterest"></i></a></li>
-                        <li><a href="#"><i class="fa fa-google"></i></a></li>
-                     </ul>
-                     <p>&copy; 2019 - The Sabebian's.Develop By Tauhid & Jamil </p>
-                     <p>All rights reserved.</p>
-                  </div>
-               </div>
-            </div>
-         </div>
-      </footer>
-      <!--******===== Footer Area End ******=====-->
-
+     @include('frontView.inc.footer')
 
        
        
 
-        <script src="{{asset('frontend')}}/assets/js/jquery.min.js"></script>
-        <script src="{{asset('frontend')}}/assets/js/bootstrap.min.js"></script>
-        <script src="{{asset('frontend')}}/assets/js/owl.carousel.min.js"></script>
-        <script src="{{asset('frontend')}}/assets/js/jquery.datepicker.min.js"></script>
-        <script src="{{asset('frontend')}}/assets/js/turn.min.js"></script>
-        <script src="{{asset('frontend')}}/assets/js/main.js"></script>
-
+     @yield('js')
 
     </body>
 </html>
