@@ -1,0 +1,89 @@
+/*login*/
+*{
+	margin:0;
+	padding:0;	
+	box-sizing:border-box;
+}
+.background_log{
+	background-image: url("../images/background/bg2.jpg");
+	background-repeat: no-repeat;
+	padding-bottom: 163px;
+	padding-top: 147px;
+	background-size: cover;
+}
+.user_log {
+	width: 962px;
+	height: auto;
+	margin: 0 auto;
+	padding: 38px;
+	width: 540px;
+	height: auto;
+	border: 3px solid black;
+	padding-bottom: 37px;
+	background-image: url("../images/background/bg.jpg");
+	background-repeat: round;
+	position:relative;
+	z-index:99;
+}
+.user_log h3{
+	font-size:28px;
+	padding-bottom: 20px;
+	color:white;
+}
+.user_log::before {
+	background-color: #000;
+	position: absolute;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	content: '';
+	z-index: -1;
+	opacity: .5;
+}
+.user_log p{
+    padding-top: 19px;
+}
+.user_log{
+	position:relative;
+}
+.user_log input[type="text"] {
+	background-color: white;
+	color: #1f1f1f;
+	width: 459px;
+	height: 30px;
+	font-size: medium;
+	border: 2px solid #7878;
+	margin-left: 0px;
+	margin-bottom: 20px;
+}
+.user_log input[type="password"] {
+	background-color: white;
+	color: #1f1f1f;
+	width: 457px;
+	height: 30px;
+	font-size: medium;
+	border: 2px solid #7878;
+	margin-left: 3px;
+}
+.user_log input[type="submit"] {
+	margin: 30px 10px 0px 0px;
+	padding: 10px 30px;
+	color: white;
+	background-color: green;
+	border: 1px;
+	border-radius: 4px;
+}
+.user_log  input[type="submit"]:hover {
+	background-color: #B1A222;
+	border: 2px solid #f8a548;
+	border: none;
+}
+.user_log a {
+	text-decoration: none;
+	margin-right: 24px;
+	color: green;
+}
+.user_log a:hover {
+	color:red;
+}
