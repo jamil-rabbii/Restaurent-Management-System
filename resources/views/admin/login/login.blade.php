@@ -14,8 +14,8 @@
                       @csrf					
                     <input type = "text" name="email" placeholder = " User name or Email" required />
 				   <input type = "password" name="password" placeholder = "Password" required />
-					<input type="submit" valu="login">
-                                    {{ __('Login') }}
+					<input type="submit" value="Login">
+                                    {{ __('') }}
                                 </input>
 
                             
