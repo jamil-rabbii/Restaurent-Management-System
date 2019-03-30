@@ -20,3 +20,10 @@ Route::get('/','FrontController@index');
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+/* Order Route */
+Route::POST('order','OrderController@insert');
+/* Order Route */
+Route::POST('feedback','FeedbackController@insert');
+/* Order Route */
+Route::POST('reservation','ReservationController@insert');
+

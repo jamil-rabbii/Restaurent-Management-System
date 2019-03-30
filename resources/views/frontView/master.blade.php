@@ -199,47 +199,49 @@
                         <h2>book a table</h2>
                      </div>
                      <div class="booking-form">
-                        <form>
+                        <form action="reservation" method="post" enctype="multipart/form-data">
+                          <!-- {{ csrf_field() }} -->
+                          @csrf
                            <div class="row">
                               <div class="col-md-6">
                                  <p>
-                                    <input type="text" placeholder="Name">
+                                    <input type="text" placeholder="Name" name="name" required>
                                  </p>
                               </div>
                               <div class="col-md-6">
                                  <p>
-                                    <input type="email" placeholder="Email">
+                                    <input type="email" placeholder="Email" name="email" required>
                                  </p>
                               </div>
                            </div>
                            <div class="row">
                               <div class="col-md-6">
                                  <p>
-                                    <input type="text" placeholder="Phone">
+                                    <input type="tel" placeholder="Phone" name="phone" required>
                                  </p>
                               </div>
                               <div class="col-md-6">
                                  <p>
-                                    <input type="text" placeholder="Person">
+                                    <input type="int" placeholder="Person" name="person" required>
                                  </p>
                               </div>
                            </div>
                            <div class="row">
                               <div class="col-md-6">
                                  <p>
-                                    <input id="reservation_date" name="reservation_date" placeholder="Expected Date" data-select="datepicker" type="text">
+                                    <input id="reservation_date" name="date" placeholder="Expected Date" data-select="datepicker" type="date" required>
                                  </p>
                               </div>
                               <div class="col-md-6">
                                  <p>
-                                    <input type="text" placeholder="Occation">
+                                    <input type="text" placeholder="Occation" name="occation" required>
                                  </p>
                               </div>
                            </div>
                            <div class="row">
                               <div class="col-md-12">
                                  <p>
-                                    <textarea placeholder="Special Request"></textarea>
+                                    <textarea placeholder="Special Request" name="srequest" required></textarea>
                                  </p>
                               </div>
                            </div>
@@ -354,53 +356,61 @@
                         </button>
                     </div>
                     <div class="modal-body">
-                        <form class="modalForm">
+                        <!-- <form action="{{action('OrderController@insert')}}" method="post" enctype="multipart/form-data" class="modalForm"> -->
+                        <form action="order" method="post" enctype="multipart/form-data" class="modalForm">
+                          <!-- {{ csrf_field() }} -->
+                          @csrf
                             <div class="row">
                                 <div class="col-lg-6 col-md-6">
                                     <div class="form-group">
-                                        <input type="text" class="form-control" placeholder="Name">
+                                        <input type="text" name="name" class="form-control" placeholder="Name" required>
                                     </div>
                                 </div>
 
                                 <div class="col-lg-6 col-md-6">
                                     <div class="form-group">
-                                        <input type="text" class="form-control" placeholder="Address">
+                                        <input type="text" name="address" class="form-control" placeholder="Address" required>
                                     </div>
                                 </div>
 
                                 <div class="col-lg-6 col-md-6">
                                     <div class="form-group">
-                                        <input type="text" class="form-control" placeholder="11/11/19">
+                                        <input type="date" name="date" class="form-control" placeholder="11/11/19" required>
                                     </div>
                                 </div>
 
                                 <div class="col-lg-6 col-md-6">
                                     <div class="form-group">
-                                        <input type="text" class="form-control" placeholder="Food number">
+                                        <input type="int" name="foodnumber" class="form-control" placeholder="Food number" required>
                                     </div>
                                 </div>
 
                                 <div class="col-lg-6 col-md-6">
                                     <div class="form-group">
-                                        <input type="text" class="form-control" placeholder="Time">
+                                        <input type="time" name="time" class="form-control" placeholder="Time" required>
                                     </div>
                                 </div>
 
                                 <div class="col-lg-6 col-md-6">
                                     <div class="form-group">
-                                        <select class="form-control">
-                                            <option>1 Person</option>
-                                            <option>2 Person</option>
-                                            <option>3 Person</option>
-                                            <option>4 Person</option>
-                                            <option>5 Person</option>
+                                        <select name="person" class="form-control" required>
+                                            <option value="1">1 Person</option>
+                                            <option value="2">2 Person</option>
+                                            <option value="3">3 Person</option>
+                                            <option value="4">4 Person</option>
+                                            <option value="5">5 Person</option>
                                         </select>
                                     </div>
                                 </div>
 
                                 <div class="col-lg-12 col-md-12">
-                                    <button type="submit" class="btn btn-primary">Order Now</button>
-                                </div>
+                                    <!--<button type="submit" value="submit" class="btn btn-primary">Order Now</button>-->
+
+                                    <input class="btn btn-primary" type="submit" value="send message">
+
+
+
+                                  </div>
                             </div>
                         </form>
                     </div>
@@ -471,15 +481,17 @@
             <div class="row">
                <div class="col-lg-5 col-md-5">
                   <div class="contact-left">
-                     <form>
+                      <form action="feedback" method="post" enctype="multipart/form-data">
+                          <!-- {{ csrf_field() }} -->
+                          @csrf
                         <p>
-                           <input class="input" type="text" placeholder="Your Name" id="name">
+                           <input class="input" type="text" placeholder="Your Name" id="name" name="name" required>
                         </p>
                         <p>
-                           <input class="input" type="email" placeholder="Your Email" id="email"> 
+                           <input class="input" type="email" placeholder="Your Email" id="email" name="email" required> 
                         </p>
                         <p>
-                           <textarea class="input" name="message" id="msg" placeholder="Write your message here..."></textarea>
+                           <textarea class="input" name="message" id="msg" placeholder="Write your message here..." required></textarea>
                         </p>
                         <p>
                            <button type="submit">Send Message</button>

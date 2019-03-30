@@ -1,7 +1,7 @@
 <header class="header-area">
           <nav class="navbar navbar-expand-lg sticky-top site-menu">
               <div class="container">
-                  <a class="logo" href="index.html">
+                  <a class="logo" href="#">
                     The Sahebian's
                       <!-- <img src="assets/images/logo-1.png" class="bg-logo" alt="site logo"> -->
                   </a>
