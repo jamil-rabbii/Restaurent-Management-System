@@ -406,7 +406,7 @@
                                 <div class="col-lg-12 col-md-12">
                                     <!--<button type="submit" value="submit" class="btn btn-primary">Order Now</button>-->
 
-                                    <input class="btn btn-primary" type="submit" value="send message">
+                                    <input class="btn btn-primary" type="submit" value="Order Now">
 
 
 

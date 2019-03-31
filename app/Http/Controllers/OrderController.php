@@ -19,7 +19,9 @@ class OrderController extends Controller
 		\DB::table('orders')->insert([
     	['name'=>$name, 'address'=>$address, 'date'=>$date, 'foodnumber'=>$foodnumber,'time'=>$time,'person'=>$person]
 	]);
-      echo "Record inserted successfully.<br/>";
-      echo '<a href = "">Click Here</a> to go back.';
+     /* echo "<h3>Thank You For Your Order</h3><br/>We Will Deliverd Your Food Within 30 Minutes Approximately";
+      echo "<br/>";
+      echo '<a href = "http://localhost/P300ByLaravel/public/">Click Here</a> to go back.'; */
+       return view('frontView.home.homeContent');
     }
 }

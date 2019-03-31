@@ -19,6 +19,10 @@ class ReservationController extends Controller
 		\DB::table('reservations')->insert([
     	['name'=>$name, 'email'=>$email, 'phone'=>$phone,'person'=>$person,'date'=>$date,'occation'=>$occation,'request'=>$srequest]
 	]);
-      echo "Record inserted successfully.<br/>";
-      echo '<a href = "">Click Here</a> to go back.';
-    }}
+		/*
+       echo "<h3>Congretulations</h3><br/>You Reserve a Table For You Succesfully";
+      echo "<br/>";
+      echo '<a href = "http://localhost/P300ByLaravel/public/">Click Here</a> to go back.';*/
+      return view('frontView.home.homeContent');
+    }
+}

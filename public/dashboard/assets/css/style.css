@@ -37,7 +37,8 @@ span{
 	position: fixed;
 	z-index: 9999999;
 	top: 0;
-	background-color:black;
+	background-color: #2d1616;
+	background-image: url("../img/bg.jpg");
 }
 
 .header_area__scroll{
@@ -135,7 +136,9 @@ span{
 					USERS VIEW
 ============================================================*/
 
-.update {}
+.update {
+    display: inline-block;
+}
 .update a {
 	margin-left: 35px;
 	padding: 11px 40px;
@@ -173,7 +176,7 @@ span{
 
 
 .admin_view_area {
-	background-color: black;
+	background-color: #250808;
 	border-top: 1px solid gray;
 	margin-top: 68px;
 	color: white;

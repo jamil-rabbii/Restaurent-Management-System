@@ -26,4 +26,5 @@ Route::POST('order','OrderController@insert');
 Route::POST('feedback','FeedbackController@insert');
 /* Order Route */
 Route::POST('reservation','ReservationController@insert');
-
+/* feedback view */
+/*Route::get('/feedbacks','FeedbackController@view');*/

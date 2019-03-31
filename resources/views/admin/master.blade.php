@@ -1,3 +1,40 @@
+<?php 
+use Illuminate\Http\Request;
+
+/*Start Feedback Table:Data Retrive*/
+$id=session()->get('id');
+$name=session()->get('name');
+$message=session()->get('message');
+/*End FEEDBACK Table:Data Retrive*/
+
+
+/*Start ORDERS Table:Data Retrive*/
+$id=session()->get('id');
+$name=session()->get('name');
+$address=session()->get('address');
+$date=session()->get('date');
+$foodnumber=session()->get('foodnumber');
+$time=session()->get('time');
+$person=session()->get('person');
+/*End ORDERS Table:Data Retrive*/
+
+/*Start RESERVATION Table:Data Retrive*/
+$id=session()->get('id');
+$name=session()->get('name');
+$email=session()->get('email');
+$phone=session()->get('phone');
+$person=session()->get('person');
+$date=session()->get('date');
+$occation=session()->get('occation');
+$request=session()->get('request');
+/*End RESERVATION Table:Data Retrive*/
+
+$feedback=\DB::table('feedback')->get(); /*feedback table connection to the database*/
+$orders=\DB::table('orders')->get(); /*orders table connection to the database*/
+
+$reservations=\DB::table('reservations')->get();
+ ?>
+
 <!DOCTYPE HTML>
 <html lang="en-US">
 	<head>
@@ -22,7 +59,7 @@
 				<div class="row">
 					<div class="col-lg-2 col-md-1 col-sm-1">
 						<div class="logo">
-							<a href="#home"><span>THE Shahi</span>Bian</a>
+							<a href="#">THE ShahiBian</a>
 						</div>
 					</div>
 					<div class="col-lg-10 col-md-11 col-sm-11">
@@ -72,42 +109,51 @@
 								<h1>hello admin !</h1>
 							</div>
 							<table class="table table-dark table-striped">
+								<?php $i=1;
+									foreach ($reservations as $data):
+							 	?>
 							     <tr>
 									<td>id</td>
-									<td>1</td>
+									<td><td>{{$i}}</td></td>
 								</tr>
 								<tr>
 									<td>name</td>
-									<td>jamil</td>
+									<td>{{$data->name}}</td>
 								</tr>
 								<tr>
 									<td>email</td>
-									<td class="text_transform_none">jamil.rabbii@gmail.com</td>
+									<td class="text_transform_none">{{$data->email}}</td>
 								</tr>
 								<tr>
 									<td>phone number</td>
-									<td>017*********</td>
+									<td>{{$data->phone}}</td>
 								</tr>
 								<tr>
 									<td>person</td>
-									<td class="text_transform_none">5</td>
+									<td class="text_transform_none">{{$data->person}}</td>
 								</tr>
 								<tr>
 									<td>expected date</td>
-									<td>18/01/2020</td>
+									<td>{{$data->date}}</td>
 								</tr>
 								<tr>
 									<td>occation</td>
-									<td>birthday</td>
+									<td>{{$data->occation}}</td>
 								</tr>
 								<tr>
 									<td>special request</td>
-									<td>nothing</td>
+									<td>{{$data->request}}</td>
 								</tr>
+								<tr>
+									<td><a href="#" class="box_bttn">Edit</a></td>
+									<td><a href="#" class="box_bttn">Delete</a></td>
+
+								</tr>
+								<?php 
+							  		$i++;
+							  		endforeach;
+								?>
 							</table>
-							<div class="update">
-									<a href="#" class="box_bttn">update</a>
-							</div>
 						</div>
 						<div class="users_view_right_posts" id="users_view_right_posts">
 							<div class="hello_massage">
@@ -122,31 +168,28 @@
 									<th>food number</th>
 									<th>time</th>
 									<th>person</th>
-									<th>update</th>
+									<th>Edit</th>
+									<th>Delete</th>
 									
 								</tr>
+								<?php $i=1;
+									foreach ($orders as $data):
+							 	?>
 								<tr>
-									<td>2</td>
-									<td>Tauhid</td>
-									<td>akalia,sylhet</td>
-									<td>20/10/2019</td>
-									<td>5</td>
-									<td>3:10 PM</td>
-									<td>9</td>
-									<td><a href="#">update</a> </td>
+									<td>{{$i}}</td>
+									<td>{{$data->name}}</td>
+									<td>{{$data->address}}</td>
+									<td>{{$data->date}}</td>
+									<td>{{$data->foodnumber}}</td>
+									<td>{{$data->time}}</td>
+									<td>{{$data->person}}</td>
+									<td><a href="#">Edit</a> </td>
+									<td><a href="#">Delete</a> </td>
 								</tr>
-								<tr>
-								    <td>3</td>
-									<td>Jamil</td>
-									<td>Beanibazar,sylhet</td>
-									<td>18/01/2020</td>
-									<td>7</td>
-									<td>5:10 PM</td>
-									<td>4</td>
-									<td><a href="#">update</a> </td>
-									
-								</tr>
-								
+								<?php 
+							  		$i++;
+							  		endforeach;
+								?>
 							</table>
 						</div>
 						<div class="users_view_right_posts" id="admin_view_users_message">
@@ -155,18 +198,31 @@
 							</div>
 							<table class="table table-dark table-striped">
 								<tr>
+									<th>id</th>
 									<th>name</th>
 									<th>email</th>
 									<th>users message</th>			
-									<th>update</th>			
+									<th>Edit</th>
+									<th>Delete</th>			
 								</tr>
+								 
+							 <?php 
+								 $i=1;
+								foreach ($feedback as $data):
+								?>
 								<tr>
-									<td>najmin</td>
-									<td class="text_transform_none"><a href="mailto:support@info.com"><i class="fa fa-envelope" aria-hidden="true"></i>saimanajin@gmail.com<a/></td>
-									<td>food is good</td>
-									<td ><a href="#">update</a> </td>
+									<td>{{$i}}</td>
+									<td>{{$data->name}}</td>
+									<td class="text_transform_none"><a href="mailto:support@info.com"><i class="fa fa-envelope" aria-hidden="true"></i>{{$data->email}}<a/></td>
+									<td>{{$data->message}}</td>
+									<td ><a href="#">Edit</a> </td>
+									<td ><a href="#">Delete</a> </td>
+
 								</tr>
-								
+								<?php 
+							  		$i++;
+							  		endforeach;
+								?>
 							</table>
 						</div>
 					</div>
@@ -176,14 +232,14 @@
 		<footer class="footer_area">
 			<div class="container">
 				<div class="footer text-center">
-					<h3><span>Shahibian</span></h3>
+					<h3>The Sahebian's</h3>
 					<div class="footer_link row">
 						<i class="fab fa-facebook-f"></i>
 						<i class="fab fa-twitter"></i>
 						<i class="fab fa-github"></i>
 						<i class="fab fa-linkedin-in"></i>
 					</div>
-					<p>&copy copyright - the shihibian - developed by <span>Jamil & Tahuid's</span> IT farm</p>
+					<p>&copy copyright - the shihibian - developed by <a href="https://github.com/jamil-rabbii">Jamil</a> & <a href="https://github.com/jamil-rabbii">Tahuid</a></p>
 				</div>
 			</div>
 		</footer>
