@@ -18,7 +18,8 @@ class FeedbackController extends Controller
 	/*
       echo "<h3>Thank You For Your Suggestion</h3><br/>";
       echo '<a href = "http://localhost/P300ByLaravel/public/">Click Here</a> to go back.'; */
-       return view('frontView.home.homeContent');
+      // return view('frontView.home.homeContent');
+      return redirect('/')->with('message',' Dear Valuable Customer,Thanks For Your Opinion');
     }
 
         // Edit feedback
@@ -44,6 +45,12 @@ class FeedbackController extends Controller
        $feedback->email = $request ->email;
        $feedback->message = $request ->message;
        $feedback->save();
-       return view('admin.master');
+      // return view('admin.master');
+       return redirect('/home')->with('message',' You Updated Desire Data Succesfully');
+    }
+    public function deletefeed($id){
+      $dltfeedback=Feedback::find($id);
+      $dltfeedback->delete();
+      return redirect('/home')->with('message','You Deleted Unwanted Data Succesfully');
     }
 }

@@ -1,3 +1,4 @@
+
 <?php 
 use Illuminate\Http\Request;
 
@@ -108,6 +109,7 @@ $reservations=\DB::table('reservations')->get();
 							<div class="hello_massage">
 								<h1>hello admin !<br/>{{ Auth::user()->name }}</h1>
 							</div>
+							 <h3 style="color:red;text-align: center">{{Session::get('message')}}</h3>
 							<table class="table table-dark table-striped">
 								<tr>
 									<th>ID</th>
@@ -134,8 +136,8 @@ $reservations=\DB::table('reservations')->get();
 									<td>{{$data->date}}</td>
 									<td>{{$data->occation}}</td>
 									<td>{{$data->request}}</td>
-									<td><a href="#">Edit</a> </td>
-									<td><a href="#">Delete</a> </td>
+									<td><a href="{{url('/reservation/edit/'.$data->id)}}">Edit</a> </td>
+									<td><a href="{{url('/reservation/delete/ '.$data->id)}}">Delete</a> </td>
 								</tr>
 								<?php 
 							  		$i++;
@@ -147,6 +149,7 @@ $reservations=\DB::table('reservations')->get();
 							<div class="hello_massage">
 								<h1>hello admin!<br/>{{ Auth::user()->name }}</h1>
 							</div>
+							<h3 style="color:red;text-align: center">{{Session::get('message')}}</h3>
 							<table class="table table-dark table-striped">
 								<tr>
 									<th>ID</th>
@@ -171,8 +174,8 @@ $reservations=\DB::table('reservations')->get();
 									<td>{{$data->foodnumber}}</td>
 									<td>{{$data->time}}</td>
 									<td>{{$data->person}}</td>
-									<td><a href="#">Edit</a> </td>
-									<td><a href="#">Delete</a> </td>
+									<td><a href="{{url('/order/edit/'.$data->id)}}">Edit</a> </td>
+									<td><a href="{{url('/order/delete/ '.$data->id)}}">Delete</a> </td>
 								</tr>
 								<?php 
 							  		$i++;
@@ -185,6 +188,7 @@ $reservations=\DB::table('reservations')->get();
 								<h1>hello admin !{{ Auth::user()->name }}<br/>your message from customers.</h1>
 							</div>
 							<table class="table table-dark table-striped">
+							  <h3 style="color:red;text-align: center">{{Session::get('message')}}</h3>
 								<tr>
 									<th>ID</th>
 									<th>Name</th>
@@ -201,10 +205,10 @@ $reservations=\DB::table('reservations')->get();
 								<tr>
 									<td>{{$i}}</td>
 									<td>{{$data->name}}</td>
-									<td class="text_transform_none"><a href="mailto:support@info.com"><i class="fa fa-envelope" aria-hidden="true"></i>{{$data->email}}<a/></td>
+									<td class="text_transform_none"><i class="fa fa-envelope" aria-hidden="true"></i>{{$data->email}}</td>
 									<td>{{$data->message}}</td>
 									<td ><a href="{{url('/feedback/edit/'.$data->id)}}">Edit</a></td>
-									<td ><a href="#">Delete</a></td>
+									<td ><a href="{{url('/feedback/delete/ '.$data->id)}}">Delete</a></td>
 								</tr>
 								<?php 
 							  		$i++;

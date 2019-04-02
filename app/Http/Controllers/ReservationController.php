@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use\App\Reservation;
 
 class ReservationController extends Controller
 {
@@ -24,5 +25,30 @@ class ReservationController extends Controller
       echo "<br/>";
       echo '<a href = "http://localhost/P300ByLaravel/public/">Click Here</a> to go back.';*/
       return view('frontView.home.homeContent');
+    }
+    public function edit($id){
+       $reservationedit=Reservation::where('id',$id)->first();
+       return view('admin.edit.reservationedit',['reservation'=>$reservationedit]);
+  }
+  public function update(Request $request){
+      /*$feedback = $request->input('id');*/
+      //echo $request->id;
+       $reservation=Reservation::find($request->id);
+       $reservation->name = $request ->name;
+       $reservation->email = $request ->email;
+       $reservation->phone = $request ->phone;
+       $reservation->person = $request ->person;
+       $reservation->date = $request ->date;
+       $reservation->occation = $request ->occation;
+       $reservation->request = $request ->srequest;
+
+       $reservation->save();
+      // return view('admin.master');
+       return redirect('/home')->with('message',' You Updated Desire Data Succesfully');
+    }
+    public function deleteresv($id){
+      $dltreservation=Reservation::find($id);
+      $dltreservation->delete();
+      return redirect('/home')->with('message','You Deleted Unwanted Data Succesfully');
     }
 }

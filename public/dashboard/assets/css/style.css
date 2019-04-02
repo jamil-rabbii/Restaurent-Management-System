@@ -148,9 +148,9 @@ span{
 	border-left: 1px solid gray;
 	display: none;
 }
-.users_view_right_posts table tr{
+/*.users_view_right_posts table tr{
 	text-transform:capitalize;
-}
+}*/
 .users_view_right_posts table tr td i.fa {
 	margin-right: 20px;
 	font-size: 19px;
@@ -160,12 +160,13 @@ span{
 	font-size: 19px;
 }
 .users_view_right_posts table tr td a {
-	text-decoration: none;
-	color: #2ee624;
-	font-size: 17px;
+	background-color: #e60d0d;
+    color: white;
+    padding: 7px 20px;
+    text-decoration: none;
 }
 .users_view_right_posts table tr td a:hover {
-	color: #e60d0d;
+	color: #149828;
 }
 
 

@@ -22,12 +22,25 @@ Auth::routes();
 Route::get('/home', 'HomeController@index')->name('home');
 /* Order Route */
 Route::POST('order','OrderController@insert');
+Route::get('/order/edit/{id}','OrderController@edit');
+Route::POST('/order/edit','OrderController@update');
+Route::get('/order/delete/{id}','OrderController@deleteorder');
 /* Order Route */
 
+/* Feedback Route */
 Route::POST('feedback','FeedbackController@insert');
 Route::get('/feedback/edit/{id}','FeedbackController@edit');
 Route::POST('/feedback/edit','FeedbackController@update');
+Route::get('/feedback/delete/{id}','FeedbackController@deletefeed');
 
-/* Order Route */
+
+/* Feedback Route */
+
+/* Rservation Route */
 Route::POST('reservation','ReservationController@insert');
+Route::get('/reservation/edit/{id}','ReservationController@edit');
+Route::POST('/reservation/edit','ReservationController@update');
+Route::get('/reservation/delete/{id}','ReservationController@deleteresv');
+/* Rservation Route */
+
 /* feedback view */

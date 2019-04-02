@@ -481,6 +481,7 @@
             <div class="row">
                <div class="col-lg-5 col-md-5">
                   <div class="contact-left">
+                      <h3 style="color:red;text-align: center">{{Session::get('message')}}</h3>
                       <form action="feedback" method="post" enctype="multipart/form-data">
                           <!-- {{ csrf_field() }} -->
                           @csrf
