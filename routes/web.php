@@ -23,8 +23,11 @@ Route::get('/home', 'HomeController@index')->name('home');
 /* Order Route */
 Route::POST('order','OrderController@insert');
 /* Order Route */
+
 Route::POST('feedback','FeedbackController@insert');
+Route::get('/feedback/edit/{id}','FeedbackController@edit');
+Route::POST('/feedback/edit','FeedbackController@update');
+
 /* Order Route */
 Route::POST('reservation','ReservationController@insert');
 /* feedback view */
-/*Route::get('/feedbacks','FeedbackController@view');*/

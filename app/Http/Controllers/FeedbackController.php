@@ -20,10 +20,30 @@ class FeedbackController extends Controller
       echo '<a href = "http://localhost/P300ByLaravel/public/">Click Here</a> to go back.'; */
        return view('frontView.home.homeContent');
     }
-    /*
-    public function view(){
-    	$feedback= feedback::all();
-    	return view('admin.master',['fback'=>$feedback]);
+
+        // Edit feedback
+    public function edit($id){
+       $feedbackedit=Feedback::where('id',$id)->first();
+       return view('admin.edit.feedbackedit',['feedback'=>$feedbackedit]);
+        
+        /*$table = Feedback::find($request->id);
+
+        $table->name = $request->name;
+        $table->email = $request->email;
+        $table->message = $request->message;
+
+        $table->insert();
+        return redirect()->back();*/
+
     }
-   */
+    public function update(Request $request){
+      /*$feedback = $request->input('id');*/
+      //echo $request->id;
+       $feedback=Feedback::find($request->id);
+       $feedback->name = $request ->name;
+       $feedback->email = $request ->email;
+       $feedback->message = $request ->message;
+       $feedback->save();
+       return view('admin.master');
+    }
 }

@@ -67,7 +67,7 @@ $reservations=\DB::table('reservations')->get();
 							<div class="row">
 								<div class="menu">
 									<ul class="nav">
-										<li class="current"><a href="#contact">profile</a></li>
+										<li class="current"><a href="#contact">{{ Auth::user()->name }}</a></li>
 									</ul>
 								</div>
 								<div class="menu_link">
@@ -75,7 +75,7 @@ $reservations=\DB::table('reservations')->get();
                                         <a class="dropdown-item link" href="{{ route('logout') }}"
                                        onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">
-                                       <i class="fas fa-portrait"></i> {{ __('Logout from') }}  {{ Auth::user()->name }}
+                                       <i class="fas fa-portrait"></i> {{ __('Logout') }}
                                     </a>
 
                                     <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
@@ -94,7 +94,7 @@ $reservations=\DB::table('reservations')->get();
 	<section class="admin_view_area">
 			<div class="container-fluid">
 				<div class="row">
-					<div class="col-3">
+					<div class="col-2">
 						<div class="users_view_left">
 							<ul>
 								<li id="my_info">booked table</li>
@@ -103,51 +103,39 @@ $reservations=\DB::table('reservations')->get();
 							</ul>
 						</div>
 					</div>
-					<div class="col-9">
+					<div class="col-10">
 						<div class="users_view_right_info" id="users_view_right_info">
 							<div class="hello_massage">
-								<h1>hello admin !</h1>
+								<h1>hello admin !<br/>{{ Auth::user()->name }}</h1>
 							</div>
 							<table class="table table-dark table-striped">
+								<tr>
+									<th>ID</th>
+									<th>Name</th>
+									<th>Email</th>
+									<th>Phone Number</th>
+									<th>Person</th>
+									<th>Expected date</th>
+									<th>Occation</th>
+									<th>Special request</th>
+									<th>Edit</th>
+									<th>Delete</th>
+									
+								</tr>
 								<?php $i=1;
 									foreach ($reservations as $data):
 							 	?>
-							     <tr>
-									<td>id</td>
-									<td><td>{{$i}}</td></td>
-								</tr>
 								<tr>
-									<td>name</td>
+									<td>{{$i}}</td>
 									<td>{{$data->name}}</td>
-								</tr>
-								<tr>
-									<td>email</td>
-									<td class="text_transform_none">{{$data->email}}</td>
-								</tr>
-								<tr>
-									<td>phone number</td>
+									<td>{{$data->email}}</td>
 									<td>{{$data->phone}}</td>
-								</tr>
-								<tr>
-									<td>person</td>
-									<td class="text_transform_none">{{$data->person}}</td>
-								</tr>
-								<tr>
-									<td>expected date</td>
+									<td>{{$data->person}}</td>
 									<td>{{$data->date}}</td>
-								</tr>
-								<tr>
-									<td>occation</td>
 									<td>{{$data->occation}}</td>
-								</tr>
-								<tr>
-									<td>special request</td>
 									<td>{{$data->request}}</td>
-								</tr>
-								<tr>
-									<td><a href="#" class="box_bttn">Edit</a></td>
-									<td><a href="#" class="box_bttn">Delete</a></td>
-
+									<td><a href="#">Edit</a> </td>
+									<td><a href="#">Delete</a> </td>
 								</tr>
 								<?php 
 							  		$i++;
@@ -157,17 +145,17 @@ $reservations=\DB::table('reservations')->get();
 						</div>
 						<div class="users_view_right_posts" id="users_view_right_posts">
 							<div class="hello_massage">
-								<h1>hello admin</h1>
+								<h1>hello admin!<br/>{{ Auth::user()->name }}</h1>
 							</div>
 							<table class="table table-dark table-striped">
 								<tr>
-									<th>id</th>
-									<th>name</th>
-									<th>address</th>
-									<th>date</th>
-									<th>food number</th>
-									<th>time</th>
-									<th>person</th>
+									<th>ID</th>
+									<th>Name</th>
+									<th>Address</th>
+									<th>Date</th>
+									<th>Food Number</th>
+									<th>Time</th>
+									<th>Person</th>
 									<th>Edit</th>
 									<th>Delete</th>
 									
@@ -194,14 +182,14 @@ $reservations=\DB::table('reservations')->get();
 						</div>
 						<div class="users_view_right_posts" id="admin_view_users_message">
 							<div class="hello_massage">
-								<h1>hello admin !<br/>your message from customers.</h1>
+								<h1>hello admin !{{ Auth::user()->name }}<br/>your message from customers.</h1>
 							</div>
 							<table class="table table-dark table-striped">
 								<tr>
-									<th>id</th>
-									<th>name</th>
-									<th>email</th>
-									<th>users message</th>			
+									<th>ID</th>
+									<th>Name</th>
+									<th>Email</th>
+									<th>Users Message</th>			
 									<th>Edit</th>
 									<th>Delete</th>			
 								</tr>
@@ -215,9 +203,8 @@ $reservations=\DB::table('reservations')->get();
 									<td>{{$data->name}}</td>
 									<td class="text_transform_none"><a href="mailto:support@info.com"><i class="fa fa-envelope" aria-hidden="true"></i>{{$data->email}}<a/></td>
 									<td>{{$data->message}}</td>
-									<td ><a href="#">Edit</a> </td>
-									<td ><a href="#">Delete</a> </td>
-
+									<td ><a href="{{url('/feedback/edit/'.$data->id)}}">Edit</a></td>
+									<td ><a href="#">Delete</a></td>
 								</tr>
 								<?php 
 							  		$i++;
