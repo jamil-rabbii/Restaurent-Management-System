@@ -576,7 +576,14 @@ TABLE BOOKING AREA CSS
 .booking-form p {
 	margin-top: 10px;
 }
-
+/*
+.booking-form input[type=file]{
+	border: 1px solid #ccc;
+    display: inline-block;
+    padding: 6px 12px;
+    cursor: pointer;
+}
+*/
 .booking-form p input {
 	background: #fff none repeat scroll 0 0;
 	border: medium none;

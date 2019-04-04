@@ -52,6 +52,13 @@ $reservations=\DB::table('reservations')->get();
 		<link rel="stylesheet" type="text/css" href="{{asset('dashboard')}}/assets/css/style.css"/>
 		<!--Responsive CSS-->
 		<link rel="stylesheet" type="text/css" href="{{asset('dashboard')}}/css/responsive.css"/>
+
+		<!--From CSS-->
+		<link rel="stylesheet"  href="{{asset('frontend')}}/assets/css/style.css">
+        <link rel="stylesheet"  href="{{asset('frontend')}}/assets/css/responsive.css">
+        <link rel="shortcut icon" href="{{asset('frontend')}}/assets/favicon/TheShahibiens.jpg" type="image/x-icon"/>
+
+
 	</head>
 	<body>
 	<header class="header_area">
@@ -95,21 +102,23 @@ $reservations=\DB::table('reservations')->get();
 	<section class="admin_view_area">
 			<div class="container-fluid">
 				<div class="row">
-					<div class="col-2">
+					<div class="col-1">
 						<div class="users_view_left">
 							<ul>
-								<li id="my_info">booked table</li>
-								<li id="blood_posts">Orderd food</li>
+								<li id="booked_table">booked table</li>
+								<li id="order_food">Orderd food</li>
 								<li id="users_message">users message</li>
+								<li id="menu_insert">menu insert</li>
+								<li id="menu_show">menu show</li>
 							</ul>
 						</div>
 					</div>
-					<div class="col-10">
+					<div class="col-11">
 						<div class="users_view_right_info" id="users_view_right_info">
 							<div class="hello_massage">
 								<h1>hello admin !<br/>{{ Auth::user()->name }}</h1>
 							</div>
-							 <h3 style="color:red;text-align: center">{{Session::get('message')}}</h3>
+							 <h3 style="color:red;text-align: center">{{Session::get('reservationmessage')}}</h3>
 							<table class="table table-dark table-striped">
 								<tr>
 									<th>ID</th>
@@ -149,7 +158,7 @@ $reservations=\DB::table('reservations')->get();
 							<div class="hello_massage">
 								<h1>hello admin!<br/>{{ Auth::user()->name }}</h1>
 							</div>
-							<h3 style="color:red;text-align: center">{{Session::get('message')}}</h3>
+							<h3 style="color:red;text-align: center">{{Session::get('ordermessage')}}</h3>
 							<table class="table table-dark table-striped">
 								<tr>
 									<th>ID</th>
@@ -188,7 +197,7 @@ $reservations=\DB::table('reservations')->get();
 								<h1>hello admin !{{ Auth::user()->name }}<br/>your message from customers.</h1>
 							</div>
 							<table class="table table-dark table-striped">
-							  <h3 style="color:red;text-align: center">{{Session::get('message')}}</h3>
+							  <h3 style="color:red;text-align: center">{{Session::get('feedmessage')}}</h3>
 								<tr>
 									<th>ID</th>
 									<th>Name</th>
@@ -216,6 +225,154 @@ $reservations=\DB::table('reservations')->get();
 								?>
 							</table>
 						</div>
+                 <section id="reservation" class="sahebian-booking-table-area" data-scroll-index="4">
+				         <div class="container" id="menu_insert_from_admin">
+				            <div class="row">
+				               <div class="col-lg-8 col-sm-12">
+				                  <div class="booking-left section_100">
+				                     <div class="site-heading">
+				                        <h2>insert menu</h2>
+				                     </div>
+				                     <div class="booking-form">
+				                        <form action="" method="post" enctype="multipart/form-data">
+				                          <!-- {{ csrf_field() }} -->
+				                          @csrf
+				                           <div class="row">
+				                               <div class="col-md-6">
+				                                 <p>
+				                                    <input type="file" name="myFile">
+				                                 </p>
+				                              </div>
+				                              <div class="col-md-6">
+				                                 <p>
+				                                    <input type="text" placeholder="name" name="email" value="" required>
+				                                 </p>
+				                              </div>
+				                           </div>
+				                           <div class="row">
+				                              <div class="col-md-6">
+				                                 <p>
+				                                    <input type="text" placeholder="item-1" name="item_1" value="" required>
+				                                 </p>
+				                              </div>
+				                              <div class="col-md-6">
+				                                 <p>
+				                                    <input type="int" placeholder="Price" name="price" value="" required>
+				                                 </p>
+				                              </div>
+				                           </div>
+				                            <div class="row">
+				                              <div class="col-md-6">
+				                                 <p>
+				                                    <input type="text" placeholder="item-2" name="item_2" value="" required>
+				                                 </p>
+				                              </div>
+				                              <div class="col-md-6">
+				                                 <p>
+				                                    <input type="int" placeholder="Price" name="price" value="" required>
+				                                 </p>
+				                              </div>
+				                           </div>
+				                            <div class="row">
+				                              <div class="col-md-6">
+				                                 <p>
+				                                    <input type="text" placeholder="item-3" name="item_3" value="" required>
+				                                 </p>
+				                              </div>
+				                              <div class="col-md-6">
+				                                 <p>
+				                                    <input type="int" placeholder="Price" name="price" value="" required>
+				                                 </p>
+				                              </div>
+				                           </div>
+				                            <div class="row">
+				                              <div class="col-md-6">
+				                                 <p>
+				                                    <input type="text" placeholder="item-4" name="item_4" value="" required>
+				                                 </p>
+				                              </div>
+				                              <div class="col-md-6">
+				                                 <p>
+				                                    <input type="int" placeholder="Price" name="price" value="" required>
+				                                 </p>
+				                              </div>
+				 							</div>
+				 							<div class="row">
+				                              <div class="col-md-6">
+				                                 <p>
+				                                    <input type="text" placeholder="item-5" name="item_5" value="" required>
+				                                 </p>
+				                              </div>
+				                              <div class="col-md-6">
+				                                 <p>
+				                                    <input type="int" placeholder="Price" name="price" value="" required>
+				                                 </p>
+				                              </div>
+				 							</div>
+				                           <div class="row">
+				                              <div class="col-md-12">
+				                                <input type="hidden" name="id" value="">
+				                                 <p>
+				                                    <button type="submit">insert menu</button>
+				                                 </p>
+				                              </div>
+				                           </div>
+				                        </form>
+				                     </div>
+				                  </div>
+				               </div>
+				               <div class="col-md-4">
+				                  <div class="booking-right">
+				                     <img src="{{asset('frontend')}}/assets/images/book.png" alt="book image" />
+				                  </div>
+				               </div>
+				            </div>
+				         </div>
+     			 </section>
+
+
+                        <div class="users_view_right_info" id="menu_show_from_admin">
+							<div class="hello_massage">
+								<h1>hello admin !<br/></h1>
+							</div>
+							 <h3 style="color:red;text-align: center">session</h3>
+							<table class="table table-dark table-striped">
+							  <tr>
+									<th>ID</th>
+									<th>Menu Image</th>
+									<th>Platter Name</th>
+									<th>Item-1</th>
+									<th>Price</th>
+									<th>Item-2</th>
+									<th>Price</th>
+									<th>Item-3</th>
+									<th>Price</th>
+									<th>Item-4</th>
+									<th>Price</th>
+									<th>Item-5</th>
+									<th>Price</th>
+									<th>Edit</th>
+									<th>Delete</th>						
+								</tr>
+								<tr>
+									<td>1</td>
+									<td>N/A</td>
+									<td>Herschel's Favorite</td>
+									<td>Rice 1 Plets </td>
+									<td>$12.00</td>
+									<td>Salad 1 Plets </td>
+									<td>$06.00</td>
+									<td>Checken 2 Piece</td>
+									<td>$10.00</td>
+									<td>soft drink </td>
+									<td>$$09.00</td>
+									<td>soft drink </td>
+									<td>$$09.00</td>
+									<td ><a href="">Edit</a></td>
+									<td ><a href="">Delete</a></td>
+								</tr>
+							</table>
+						</div>
 					</div>
 				</div>
 			</div>
@@ -240,23 +397,48 @@ $reservations=\DB::table('reservations')->get();
 		<script type="text/javascript" src="{{asset('dashboard')}}/assets/js/main.js"></script>
 		<script type="text/javascript">
 			$(document).ready(function(){
-				$("#my_info").click(function(){
+				$("#booked_table").click(function(){
 					$("#users_view_right_posts").hide();
 					$("#admin_view_users_message").hide();
 					$("#users_view_right_info").show();
+					$("#menu_show_from_admin").hide();
+					$("#menu_insert_from_admin").hide();
+
 				});
-				$("#blood_posts").click(function(){
+				$("#order_food").click(function(){
 					$("#users_view_right_posts").show();
 					$("#users_view_right_info").hide();
 					$("#admin_view_users_message").hide();
+					$("#menu_show_from_admin").hide();
+					$("#menu_insert_from_admin").hide();
 				});
 				$("#users_message").click(function(){
 					$("#users_view_right_posts").hide();
 					$("#users_view_right_info").hide();
 					$("#admin_view_users_message").show();
+					$("#menu_show_from_admin").hide();
+					$("#menu_insert_from_admin").hide();
 				});
-				
+				$("#menu_show").click(function(){
+					$("#users_view_right_posts").hide();
+					$("#users_view_right_info").hide();
+					$("#admin_view_users_message").hide();
+					$("#menu_show_from_admin").show();
+					$("#menu_insert_from_admin").hide();
+				});
+				$("#menu_insert").click(function(){
+					$("#users_view_right_posts").hide();
+					$("#users_view_right_info").hide();
+					$("#admin_view_users_message").hide();
+					$("#menu_show_from_admin").hide();
+					$("#menu_insert_from_admin").show();
+				});
+
 			});
+
+
+		
+			
 		</script>
 	</body>
 </html>

@@ -42,11 +42,11 @@ class OrderController extends Controller
 
        $order->save();
       // return view('admin.master');
-       return redirect('/home')->with('message',' You Updated Desire Data Succesfully');
+       return redirect('/home')->with('ordermessage',' You Updated Desire Data Succesfully');
     }
     public function deleteorder($id){
       $dltorder=Order::find($id);
       $dltorder->delete();
-      return redirect('/home')->with('message','You Deleted Unwanted Data Succesfully');
+      return redirect('/home')->with('ordermessage','You Deleted Unwanted Data Succesfully');
     }
 }

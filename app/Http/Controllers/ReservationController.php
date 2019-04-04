@@ -44,11 +44,11 @@ class ReservationController extends Controller
 
        $reservation->save();
       // return view('admin.master');
-       return redirect('/home')->with('message',' You Updated Desire Data Succesfully');
+       return redirect('/home')->with('reservationmessage',' You Updated Desire Data Succesfully');
     }
     public function deleteresv($id){
       $dltreservation=Reservation::find($id);
       $dltreservation->delete();
-      return redirect('/home')->with('message','You Deleted Unwanted Data Succesfully');
+      return redirect('/home')->with('reservationmessage','You Deleted Unwanted Data Succesfully');
     }
 }

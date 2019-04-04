@@ -46,11 +46,11 @@ class FeedbackController extends Controller
        $feedback->message = $request ->message;
        $feedback->save();
       // return view('admin.master');
-       return redirect('/home')->with('message',' You Updated Desire Data Succesfully');
+       return redirect('/home')->with('feedmessage',' You Updated Desire Data Succesfully');
     }
     public function deletefeed($id){
       $dltfeedback=Feedback::find($id);
       $dltfeedback->delete();
-      return redirect('/home')->with('message','You Deleted Unwanted Data Succesfully');
+      return redirect('/home')->with('feedmessage','You Deleted Unwanted Data Succesfully');
     }
 }

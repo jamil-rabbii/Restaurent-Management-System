@@ -191,6 +191,7 @@ span{
 	text-transform: capitalize;
 	border: 1px solid gray;
 	margin: 0 -31px;
+	list-style: none;
 }
 .admin_view_area .users_view_left ul li:hover {
 	background-color: #212529;
