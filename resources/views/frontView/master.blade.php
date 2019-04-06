@@ -1,3 +1,25 @@
+<?php 
+use Illuminate\Http\Request;
+
+/*Start Menu Table:Data Retrive*/
+$id=session()->get('id');
+$pictures=session()->get('pictures');
+$PlatterName=session()->get('PlatterName');
+$item_1=session()->get('item_1');
+$price_1=session()->get('price_1');
+$item_2=session()->get('item_2');
+$price_1=session()->get('price_2');
+$item_1=session()->get('item_3');
+$price_1=session()->get('price_3');
+$item_1=session()->get('item_4');
+$price_1=session()->get('price_4');
+$item_1=session()->get('item_5');
+$price_1=session()->get('price_5');
+
+/*End RESERVATION Table:Data Retrive*/
+$menu=\DB::table('specialmenus')->get(); /*specialmenus table connection to the database*/
+ ?>
+
 <!doctype html>
 <html lang="en">
     <head>
@@ -278,25 +300,36 @@
               </div>
             </div>
             <div class="row">
+              <?php
+                    foreach ($menu as $data):
+                  ?>
                <div class="col-lg-4">
                   <div class="single-signature">
+                    
                      <div class="signature-img">
                         <a href="#">
-                        <img src="{{asset('frontend')}}/assets/images/signature/signature-1.jpg" alt="Signature" />
+                        <img src="{{$data->pictures}}" alt="Signature" />
                         </a>
                      </div>
                      <div class="signature-text">
-                        <h3><a href="#">Herschel's Favorite</a></h3>
+                        <h3><a href="#">{{$data->PlatterName}}</a></h3>
                         <ul>
-                           <li>Rice 1 Plets <span>: $12.00</span></li>
-                           <li>Salad 1 Plets <span>: $06.00</span></li>
-                           <li>Checken 2 Piece <span>: $10.00</span></li>
-                           <li>soft drink <span>: $09.00</span></li>
+                           <li>{{$data->item_1}} <span>: {{$data->price_1}}TK</span></li>
+                           <li>{{$data->item_2}} <span>: {{$data->price_2}}TK</span></li>
+                           <li>{{$data->item_3}} <span>: {{$data->price_3}}TK</span></li>
+                           <li>{{$data->item_4}} <span>: {{$data->price_4}}TK</span></li>
+                           <li>{{$data->item_5}} <span>: {{$data->price_4}}TK</span></li>
                         </ul>
                      </div>
+
                   </div>
+                   
                </div>
-               <div class="col-lg-4">
+               <?php 
+                    endforeach;
+                ?>
+
+               <!--<div class="col-lg-4">
                   <div class="single-signature">
                      <div class="signature-img">
                         <a href="#">
@@ -313,8 +346,9 @@
                         </ul>
                      </div>
                   </div>
-               </div>
-               <div class="col-lg-4">
+               </div>-->
+
+               <!-- <div class="col-lg-4">
                   <div class="single-signature">
                      <div class="signature-img">
                         <a href="#">
@@ -331,7 +365,7 @@
                         </ul>
                      </div>
                   </div>
-               </div>
+               </div> -->
             </div>
          </div>
       </section>

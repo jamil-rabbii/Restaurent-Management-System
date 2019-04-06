@@ -354,7 +354,7 @@ $menu=\DB::table('specialmenus')->get(); /*specialmenus table connection to the 
 							<div class="hello_massage">
 								<h1>hello admin!<br/>{{ Auth::user()->name }}</h1>
 							</div>
-							 <h3 style="color:red;text-align: center">{{Session::get('deletemenu')}}</h3>
+							 <h3 style="color:red;text-align: center">{{Session::get('menumsz')}}</h3>
 							<table class="table table-dark table-striped">
 							  <tr>
 									<th>ID</th>
@@ -390,7 +390,7 @@ $menu=\DB::table('specialmenus')->get(); /*specialmenus table connection to the 
 									<td>{{$data->price_4}}</td>
 									<td>{{$data->item_5}}</td>
 									<td>{{$data->price_5}} </td>
-									<td ><a href="">Edit</a></td>
+									<td ><a href="{{url('/menu/edit/'.$data->id)}}">Edit</a></td>
 									<td ><a href="{{url('/menu/delete/ '.$data->id)}}">Delete</a></td>
 								</tr>
 								<?php 

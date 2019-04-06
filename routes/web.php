@@ -44,6 +44,10 @@ Route::get('/reservation/delete/{id}','ReservationController@deleteresv');
 
 /* Menu Route */
 Route::POST('menuinsert','MenuController@save');
+Route::get('/menu/edit/{id}','MenuController@edit');
+Route::POST('/menu/edit/','MenuController@update');
 Route::get('/menu/delete/{id}','MenuController@deletemenu');
+
+
 /* Menu Route */
 
