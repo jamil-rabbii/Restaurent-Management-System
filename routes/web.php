@@ -15,7 +15,6 @@ Route::get('/', function () {
     return view('welcome');
 });
 */
-
 Route::get('/','FrontController@index');
 Auth::routes();
 
@@ -43,4 +42,8 @@ Route::POST('/reservation/edit','ReservationController@update');
 Route::get('/reservation/delete/{id}','ReservationController@deleteresv');
 /* Rservation Route */
 
-/* feedback view */
+/* Menu Route */
+Route::POST('menuinsert','MenuController@save');
+Route::get('/menu/delete/{id}','MenuController@deletemenu');
+/* Menu Route */
+

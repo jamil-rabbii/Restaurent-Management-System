@@ -30,10 +30,28 @@ $occation=session()->get('occation');
 $request=session()->get('request');
 /*End RESERVATION Table:Data Retrive*/
 
+/*Start Menu Table:Data Retrive*/
+$id=session()->get('id');
+$pictures=session()->get('pictures');
+$PlatterName=session()->get('PlatterName');
+$item_1=session()->get('item_1');
+$price_1=session()->get('price_1');
+$item_2=session()->get('item_2');
+$price_1=session()->get('price_2');
+$item_1=session()->get('item_3');
+$price_1=session()->get('price_3');
+$item_1=session()->get('item_4');
+$price_1=session()->get('price_4');
+$item_1=session()->get('item_5');
+$price_1=session()->get('price_5');
+
+/*End RESERVATION Table:Data Retrive*/
+
+
 $feedback=\DB::table('feedback')->get(); /*feedback table connection to the database*/
 $orders=\DB::table('orders')->get(); /*orders table connection to the database*/
-
-$reservations=\DB::table('reservations')->get();
+$reservations=\DB::table('reservations')->get(); /*reservation table connection to the database*/
+$menu=\DB::table('specialmenus')->get(); /*specialmenus table connection to the database*/
  ?>
 
 <!DOCTYPE HTML>
@@ -105,7 +123,7 @@ $reservations=\DB::table('reservations')->get();
 					<div class="col-1">
 						<div class="users_view_left">
 							<ul>
-								<li id="booked_table">booked table</li>
+								<li class="active" id="booked_table">booked table</li>
 								<li id="order_food">Orderd food</li>
 								<li id="users_message">users message</li>
 								<li id="menu_insert">menu insert</li>
@@ -116,7 +134,7 @@ $reservations=\DB::table('reservations')->get();
 					<div class="col-11">
 						<div class="users_view_right_info" id="users_view_right_info">
 							<div class="hello_massage">
-								<h1>hello admin !<br/>{{ Auth::user()->name }}</h1>
+								<h1>hello,<br/>{{ Auth::user()->name }}</h1>
 							</div>
 							 <h3 style="color:red;text-align: center">{{Session::get('reservationmessage')}}</h3>
 							<table class="table table-dark table-striped">
@@ -156,7 +174,7 @@ $reservations=\DB::table('reservations')->get();
 						</div>
 						<div class="users_view_right_posts" id="users_view_right_posts">
 							<div class="hello_massage">
-								<h1>hello admin!<br/>{{ Auth::user()->name }}</h1>
+								<h1>hello,<br/>{{ Auth::user()->name }}</h1>
 							</div>
 							<h3 style="color:red;text-align: center">{{Session::get('ordermessage')}}</h3>
 							<table class="table table-dark table-striped">
@@ -194,7 +212,7 @@ $reservations=\DB::table('reservations')->get();
 						</div>
 						<div class="users_view_right_posts" id="admin_view_users_message">
 							<div class="hello_massage">
-								<h1>hello admin !{{ Auth::user()->name }}<br/>your message from customers.</h1>
+								<h1>hello,{{ Auth::user()->name }}<br/>your message from customers.</h1>
 							</div>
 							<table class="table table-dark table-striped">
 							  <h3 style="color:red;text-align: center">{{Session::get('feedmessage')}}</h3>
@@ -225,27 +243,28 @@ $reservations=\DB::table('reservations')->get();
 								?>
 							</table>
 						</div>
-                 <section id="reservation" class="sahebian-booking-table-area" data-scroll-index="4">
-				         <div class="container" id="menu_insert_from_admin">
+                 <section id="reservation" data-scroll-index="4" >
+				         <div class="container users_view_right_posts" id="menu_insert_from_admin">
 				            <div class="row">
 				               <div class="col-lg-8 col-sm-12">
 				                  <div class="booking-left section_100">
 				                     <div class="site-heading">
-				                        <h2>insert menu</h2>
+				                     	<h3>Hello,<br/>{{ Auth::user()->name }} please insert menu</h3>
 				                     </div>
-				                     <div class="booking-form">
-				                        <form action="" method="post" enctype="multipart/form-data">
+				                      <h3 style="color:red;text-align: center">{{Session::get('insertmenu')}}</h3>
+				                     <div class="booking-form ">
+				                        <form action="menuinsert" method="post" enctype="multipart/form-data">
 				                          <!-- {{ csrf_field() }} -->
 				                          @csrf
 				                           <div class="row">
 				                               <div class="col-md-6">
 				                                 <p>
-				                                    <input type="file" name="myFile">
+				                                    <input type="file" name="pictures">
 				                                 </p>
 				                              </div>
 				                              <div class="col-md-6">
 				                                 <p>
-				                                    <input type="text" placeholder="name" name="email" value="" required>
+				                                    <input type="text" placeholder="Platter Name" name="pname" value="" required>
 				                                 </p>
 				                              </div>
 				                           </div>
@@ -257,55 +276,55 @@ $reservations=\DB::table('reservations')->get();
 				                              </div>
 				                              <div class="col-md-6">
 				                                 <p>
-				                                    <input type="int" placeholder="Price" name="price" value="" required>
+				                                    <input type="number" placeholder="Price" name="price_1" value="" required>
 				                                 </p>
 				                              </div>
 				                           </div>
 				                            <div class="row">
 				                              <div class="col-md-6">
 				                                 <p>
-				                                    <input type="text" placeholder="item-2" name="item_2" value="" required>
+				                                    <input type="text" placeholder="item-2" name="item_2" value="" >
 				                                 </p>
 				                              </div>
 				                              <div class="col-md-6">
 				                                 <p>
-				                                    <input type="int" placeholder="Price" name="price" value="" required>
-				                                 </p>
-				                              </div>
-				                           </div>
-				                            <div class="row">
-				                              <div class="col-md-6">
-				                                 <p>
-				                                    <input type="text" placeholder="item-3" name="item_3" value="" required>
-				                                 </p>
-				                              </div>
-				                              <div class="col-md-6">
-				                                 <p>
-				                                    <input type="int" placeholder="Price" name="price" value="" required>
+				                                    <input type="number" placeholder="Price_2" name="price_2" value="">
 				                                 </p>
 				                              </div>
 				                           </div>
 				                            <div class="row">
 				                              <div class="col-md-6">
 				                                 <p>
-				                                    <input type="text" placeholder="item-4" name="item_4" value="" required>
+				                                    <input type="text" placeholder="item-3" name="item_3" value="" >
 				                                 </p>
 				                              </div>
 				                              <div class="col-md-6">
 				                                 <p>
-				                                    <input type="int" placeholder="Price" name="price" value="" required>
+				                                    <input type="number" placeholder="Price" name="price_3" value="" >
+				                                 </p>
+				                              </div>
+				                           </div>
+				                            <div class="row">
+				                              <div class="col-md-6">
+				                                 <p>
+				                                    <input type="text" placeholder="item-4" name="item_4" value="" >
+				                                 </p>
+				                              </div>
+				                              <div class="col-md-6">
+				                                 <p>
+				                                    <input type="number" placeholder="Price" name="price_4" value="" >
 				                                 </p>
 				                              </div>
 				 							</div>
 				 							<div class="row">
 				                              <div class="col-md-6">
 				                                 <p>
-				                                    <input type="text" placeholder="item-5" name="item_5" value="" required>
+				                                    <input type="text" placeholder="item-5" name="item_5" value="" >
 				                                 </p>
 				                              </div>
 				                              <div class="col-md-6">
 				                                 <p>
-				                                    <input type="int" placeholder="Price" name="price" value="" required>
+				                                    <input type="number" placeholder="Price" name="price_5" value="" >
 				                                 </p>
 				                              </div>
 				 							</div>
@@ -331,11 +350,11 @@ $reservations=\DB::table('reservations')->get();
      			 </section>
 
 
-                        <div class="users_view_right_info" id="menu_show_from_admin">
+                        <div class="users_view_right_posts" id="menu_show_from_admin">
 							<div class="hello_massage">
-								<h1>hello admin !<br/></h1>
+								<h1>hello admin!<br/>{{ Auth::user()->name }}</h1>
 							</div>
-							 <h3 style="color:red;text-align: center">session</h3>
+							 <h3 style="color:red;text-align: center">{{Session::get('deletemenu')}}</h3>
 							<table class="table table-dark table-striped">
 							  <tr>
 									<th>ID</th>
@@ -354,23 +373,30 @@ $reservations=\DB::table('reservations')->get();
 									<th>Edit</th>
 									<th>Delete</th>						
 								</tr>
+								<?php $i=1;
+									foreach ($menu as $data):
+							 	?>
 								<tr>
-									<td>1</td>
-									<td>N/A</td>
-									<td>Herschel's Favorite</td>
-									<td>Rice 1 Plets </td>
-									<td>$12.00</td>
-									<td>Salad 1 Plets </td>
-									<td>$06.00</td>
-									<td>Checken 2 Piece</td>
-									<td>$10.00</td>
-									<td>soft drink </td>
-									<td>$$09.00</td>
-									<td>soft drink </td>
-									<td>$$09.00</td>
+									<td>{{$i}}</td>
+									<td> <img src="{{$data->pictures}}"/></td>
+									<td>{{$data->PlatterName}}</td>
+									<td>{{$data->item_1}}</td>
+									<td>{{$data->price_1}}</td>
+									<td>{{$data->item_2}}</td>
+									<td>{{$data->price_2}}</td>
+									<td>{{$data->item_3}}</td>
+									<td>{{$data->price_3}}</td>
+									<td>{{$data->item_4}}</td>
+									<td>{{$data->price_4}}</td>
+									<td>{{$data->item_5}}</td>
+									<td>{{$data->price_5}} </td>
 									<td ><a href="">Edit</a></td>
-									<td ><a href="">Delete</a></td>
+									<td ><a href="{{url('/menu/delete/ '.$data->id)}}">Delete</a></td>
 								</tr>
+								<?php 
+							  		$i++;
+							  		endforeach;
+								?>
 							</table>
 						</div>
 					</div>
@@ -436,7 +462,13 @@ $reservations=\DB::table('reservations')->get();
 
 			});
 
-
+           /* active js*/
+            $(function(){
+			$('.users_view_left ul li').click(function () {
+			$('.users_view_left ul li').removeClass('active');
+			$(this).addClass('active');
+			});
+		 });
 		
 			
 		</script>

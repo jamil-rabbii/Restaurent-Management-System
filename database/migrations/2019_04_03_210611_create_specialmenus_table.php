@@ -15,6 +15,18 @@ class CreateSpecialmenusTable extends Migration
     {
         Schema::create('specialmenus', function (Blueprint $table) {
             $table->increments('id');
+            $table->string('pictures',200);
+            $table->char('PlatterName');
+            $table->string('item_1');
+            $table->float('price_1',10,2);
+            $table->string('item_2')->nullable();
+            $table->float('price_2',10,2);
+            $table->string('item_3')->nullable();
+            $table->float('price_3',10,2);
+            $table->string('item_4')->nullable();
+            $table->float('price_4',10,2);
+            $table->string('item_5')->nullable();
+            $table->float('price_5',10,2);
             $table->timestamps();
         });
     }

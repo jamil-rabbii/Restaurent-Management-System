@@ -165,9 +165,11 @@ span{
     padding: 7px 20px;
     text-decoration: none;
 }
+/*
 .users_view_right_posts table tr td a:hover {
 	color: #149828;
 }
+*/
 
 
 
@@ -193,11 +195,11 @@ span{
 	margin: 0 -31px;
 	list-style: none;
 }
-.admin_view_area .users_view_left ul li:hover {
+/*.admin_view_area .users_view_left ul li:hover {
 	background-color: #212529;
 	color: white;
 	border: 1px solid gray;
-}
+}*/
 .admin_view_area .users_view_right_info{
 	background-color: #212529;
 	border-left: 1px solid gray;
@@ -218,4 +220,10 @@ span{
 	background-color: #212529;
 	border-left: 1px solid gray;
 	display: none;
+}
+/*active css*/
+.active {
+	background-color: #A41A0F;
+	color: white;
+	border: 1px solid white;
 }
