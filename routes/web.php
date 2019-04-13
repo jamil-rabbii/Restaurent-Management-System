@@ -51,3 +51,6 @@ Route::get('/menu/delete/{id}','MenuController@deletemenu');
 
 /* Menu Route */
 
+//search
+
+Route::POST('search','HomeController@search');

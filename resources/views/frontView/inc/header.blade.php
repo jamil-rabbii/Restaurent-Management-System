@@ -17,6 +17,7 @@
                           <li><a class="smoth-scroll" href="#order">order</a> </li>
                           <li><a class="smoth-scroll" href="#event">Events</a> </li>
                           <li><a class="smoth-scroll" href="#contact">contact</a> </li>
+                          <li><a class="smoth-scroll"href="#"><input type="text" name="search" placeholder="Search"></a> </li>
                       </ul>
                   </div>
               </div>

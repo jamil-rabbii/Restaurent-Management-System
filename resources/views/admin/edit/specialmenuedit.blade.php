@@ -96,7 +96,7 @@
                                    <div class="row">
                                       <div class="col-md-6">
                                          <p>
-                                            <input type="text" placeholder="item-5" name="item_5" value="{{$specialmenu->item_5}}" >
+                                            <input type="text" placeholder="Total" name="item_5" value="{{$specialmenu->item_5}}" >
                                          </p>
                                       </div>
                                       <div class="col-md-6">

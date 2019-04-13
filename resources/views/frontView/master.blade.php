@@ -8,13 +8,13 @@ $PlatterName=session()->get('PlatterName');
 $item_1=session()->get('item_1');
 $price_1=session()->get('price_1');
 $item_2=session()->get('item_2');
-$price_1=session()->get('price_2');
-$item_1=session()->get('item_3');
-$price_1=session()->get('price_3');
-$item_1=session()->get('item_4');
-$price_1=session()->get('price_4');
-$item_1=session()->get('item_5');
-$price_1=session()->get('price_5');
+$price_2=session()->get('price_2');
+$item_3=session()->get('item_3');
+$price_3=session()->get('price_3');
+$item_4=session()->get('item_4');
+$price_4=session()->get('price_4');
+$item_5=session()->get('item_5');
+$price_5=session()->get('price_5');
 
 /*End RESERVATION Table:Data Retrive*/
 $menu=\DB::table('specialmenus')->get(); /*specialmenus table connection to the database*/
@@ -76,7 +76,7 @@ $menu=\DB::table('specialmenus')->get(); /*specialmenus table connection to the 
         <!--******=====end about section=====******-->
 
         <!--******===== Food Menu Area Start ******=====-->
-        <section id="sahebian-food-menu" class="sahebian-food-menu section-padding">
+        <section  class="sahebian-food-menu section-padding">
           <div class="container">
             <div class="row">
               <div class="col-md-6 offset-md-3">
@@ -289,7 +289,7 @@ $menu=\DB::table('specialmenus')->get(); /*specialmenus table connection to the 
       <!--******===== Booking Table Area End ******=====-->
 
       <!-- ******=====Signature Dish Area Start******===== -->
-      <section class="sahebian-signature-dish-area section-padding">
+      <section id="sahebian-food-menu" class="sahebian-signature-dish-area section-padding">
          <div class="container">
             <div class="row">
               <div class="col-md-6 offset-md-3">
@@ -318,7 +318,7 @@ $menu=\DB::table('specialmenus')->get(); /*specialmenus table connection to the 
                            <li>{{$data->item_2}} <span>: {{$data->price_2}}TK</span></li>
                            <li>{{$data->item_3}} <span>: {{$data->price_3}}TK</span></li>
                            <li>{{$data->item_4}} <span>: {{$data->price_4}}TK</span></li>
-                           <li>{{$data->item_5}} <span>: {{$data->price_4}}TK</span></li>
+                           <li>{{$data->item_5}} <span>: {{$data->price_5}}TK</span></li>
                         </ul>
                      </div>
 
